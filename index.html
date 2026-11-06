@@ -1,6 +1,71 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>アイドル人生シミュレーション Ver.0.4</title><style>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>アイドル人生シミュレーション Ver.0.5</title><style>
 :root{--pink:#e94391;--bg:#fff5fa;--ink:#35243b;--muted:#857787}*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#ffe2f1,#f8f3ff 55%,#fff8e8);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif}main{max-width:760px;margin:auto;padding:15px 12px 90px}header{background:linear-gradient(125deg,#ff5da7,#a36bdf);color:white;padding:22px;border-radius:22px;box-shadow:0 8px 28px #a54c8b33}h1{font-size:24px;margin:0 0 6px}h2{font-size:17px;margin:0 0 12px}p{line-height:1.6}.sub{font-size:12px;opacity:.9}.panel{background:#fff;border:1px solid #f5d6e5;border-radius:18px;padding:16px;margin:13px 0;box-shadow:0 4px 15px #ba6e9520}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat{background:#fff5fa;padding:10px;border-radius:12px;font-size:12px}.stat strong{display:block;font-size:18px;margin-top:4px}.bar{height:7px;background:#f3e3ed;border-radius:8px;overflow:hidden;margin-top:6px}.bar>i{display:block;background:linear-gradient(90deg,#ff7cb8,#a77afa);height:100%}button,select,input{font:inherit}button{border:0;background:#fbe4f0;color:#8a2861;border-radius:12px;padding:12px 10px;font-weight:700;cursor:pointer;min-height:44px}button.primary{background:linear-gradient(110deg,#f64c9c,#b268dd);color:white}button:disabled{opacity:.38;cursor:not-allowed}.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.actions button{text-align:left;font-size:13px}.actions small{display:block;font-weight:400;font-size:11px;margin-top:4px}.pill{display:inline-block;background:#ffe1ee;color:#a32e6e;padding:4px 9px;border-radius:99px;font-size:12px;margin:3px}.muted{color:var(--muted);font-size:12px}.log{border-bottom:1px solid #f2e7ed;padding:8px 0;font-size:13px;line-height:1.5}.log:first-child{font-weight:700}.choices{display:grid;gap:8px}.choices button{text-align:left}.group{border-bottom:1px solid #f2e7ed;padding:10px 0;font-size:13px}.group:last-child{border:0}input{border:1px solid #ebc6d9;border-radius:12px;padding:12px;width:100%;margin:6px 0 12px}details{margin-top:12px}summary{cursor:pointer;font-weight:700}.hidden{display:none}.alert{background:#fff0e4;border:1px solid #f8d4a3;padding:12px;border-radius:12px;margin:10px 0;font-size:13px}.tabs{display:flex;gap:7px;overflow:auto;margin:12px 0}.tabs button{white-space:nowrap;font-size:12px}.tabs button.active{background:#e94391;color:white}.end{background:#fdf0ff;border-radius:14px;padding:18px;text-align:center}.wide{width:100%}
-</style></head><body><main><header><h1>🎀 アイドル人生</h1><div>12歳から始まる、あなただけのアイドル物語</div><div class="sub">Ver.0.4｜受験資格なし・合格基準非公開</div></header><div id="app"></div></main><script>
+
+/* Idol Life - Royal Kawaii Theme / presentation-only override */
+:root{--pink:#ef4c96;--bg:#fff6fb;--ink:#51334d;--muted:#9a7d94;--rose:#ff75ae;--border:#f6d8e6}
+html{background:#fff4fa}
+body{min-height:100vh;background:
+ radial-gradient(circle at 9% 5%,#ffe1f0 0,transparent 32%),
+ radial-gradient(circle at 96% 14%,#f5e3ff 0,transparent 35%),
+ linear-gradient(180deg,#fff8fc,#fff4f9 55%,#fffaf5);
+ color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+ -webkit-font-smoothing:antialiased}
+main{max-width:760px;margin:0 auto;padding:15px 13px 100px}
+header{position:relative;overflow:hidden;text-align:center;
+ background:linear-gradient(130deg,#ff8bbd 0%,#f75a9c 53%,#d968ad 100%);
+ border:3px solid #fff;border-radius:28px;padding:30px 18px 25px;
+ box-shadow:0 12px 30px #d97fa353,0 0 0 1px #f4c5dc}
+header:before{content:"✦  ♡  ✧";position:absolute;left:14px;top:12px;color:#fff8;letter-spacing:12px;font-size:16px}
+header:after{content:"✧  ♡  ✦";position:absolute;right:0;bottom:9px;color:#fff9;letter-spacing:10px;font-size:16px}
+header h1{font-size:clamp(27px,6vw,38px);font-weight:900;letter-spacing:.045em;text-shadow:0 2px 0 #d64383,0 4px 14px #9f3c7c60;margin:0 0 10px}
+header>div:not(.sub){font-size:13px;font-weight:700;letter-spacing:.045em}
+header .sub{display:inline-block;margin-top:13px;padding:6px 12px;background:#ffffff35;border:1px solid #ffffff70;border-radius:30px;font-size:10px}
+.panel{background:#fffdfefa;border:1.5px solid #f6d9e7;border-radius:23px;
+ padding:17px;margin:15px 0;box-shadow:0 5px 0 #f8e4ed,0 9px 22px #cc85a51c}
+.panel h2{font-size:17px;font-weight:850;letter-spacing:.015em;color:#ba3e7e;margin:0 0 14px}
+.panel h2:before{content:"✦";color:#ff9ec5;margin-right:7px;font-size:13px}
+.panel p{line-height:1.7}
+.grid{gap:10px}
+.stat{background:linear-gradient(160deg,#fff5fa,#fffafc);border:1px solid #f8dce9;border-radius:16px;padding:12px 11px;
+ font-size:11px;color:#9b718c;min-width:0;overflow-wrap:anywhere}
+.stat strong{font-size:clamp(15px,3.7vw,19px);color:#6c345c;font-weight:850;line-height:1.35;margin-top:5px}
+.bar{height:8px;background:#f6e6f0;border-radius:20px;margin-top:9px}
+.bar>i{background:linear-gradient(90deg,#ff92c0,#ed529e);border-radius:20px}
+.pill{background:#fff0f7;border:1px solid #f6cce0;color:#c34c8c;font-weight:750;padding:5px 10px}
+button{border:1px solid #f7cfe1;background:linear-gradient(180deg,#fff6fb,#ffe4f0);color:#a93473;
+ border-radius:14px;box-shadow:0 3px 0 #f3bfd6;font-weight:800;padding:12px 11px;
+ transition:transform .12s ease,box-shadow .12s ease,filter .12s ease;touch-action:manipulation}
+button:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 0 #f3bfd6}
+button.primary{background:linear-gradient(115deg,#ff6da9,#e94c96 60%,#d64c98);border:1px solid #d94b8e;
+ color:white;box-shadow:0 4px 0 #bc367b,0 6px 13px #e96b9a3a}
+button.primary:active:not(:disabled){box-shadow:0 1px 0 #bc367b}
+button:disabled{opacity:.45;filter:grayscale(.22);box-shadow:none}
+.actions{gap:10px}
+.actions button{background:linear-gradient(160deg,#fffafd,#ffedf5);border:1px solid #f8d7e5;border-radius:17px;
+ min-height:83px;font-size:13px;padding:12px;text-align:left;box-shadow:0 3px 0 #f8dce9}
+.actions button small{color:#aa829c;font-size:11px;line-height:1.5;margin-top:7px}
+.tabs{position:sticky;top:0;z-index:10;background:#fff6fbea;padding:10px 2px 12px;margin:15px -2px 10px;
+ border-radius:18px;gap:7px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.tabs button{flex:1;min-width:max-content;padding:11px 10px;background:#fff;border:1px solid #f5d5e4;
+ border-radius:13px;box-shadow:0 2px 0 #f4d9e7;font-size:12px}
+.tabs button.active{background:linear-gradient(135deg,#ff77ad,#ed5198);color:#fff;border-color:#df4a8f;box-shadow:0 3px 0 #c43f83}
+.group{padding:14px 2px;border-bottom:1px dashed #f0d4e3;line-height:1.6}
+.group strong{color:#8c3e72}
+.group button{margin-top:3px}
+.log{border-bottom:1px dashed #f0d4e3;padding:12px 3px;line-height:1.65}
+.alert{background:#fff2f5;border:1px solid #f8c8d8;color:#ad5274;border-radius:16px;padding:13px}
+.muted{color:#a1849a;line-height:1.65}
+input{background:#fff9fc;border:1.5px solid #f3cadd;border-radius:14px;outline:none}
+input:focus{border-color:#e966a1;box-shadow:0 0 0 3px #ffd9e9}
+summary{color:#a74780;padding:7px 0}
+.choices{gap:12px}
+.choices button{padding:15px}
+.end{background:linear-gradient(150deg,#fff5fa,#fff0fa);border:1px solid #f4c5dd}
+.end h1{font-size:36px;color:#e64c99}
+.wide{min-height:51px}
+@media(max-width:380px){main{padding-left:9px;padding-right:9px}.panel{padding:13px}.stat{padding:10px 8px}.tabs button{font-size:11px;padding:10px 8px}.actions button{font-size:12px}}
+@media(prefers-reduced-motion:reduce){button{transition:none}}
+</style></head><body><main><header><h1>🎀 アイドル人生</h1><div>12歳から始まる、あなただけのアイドル物語</div><div class="sub">Ver.0.5｜王道アイドルデザイン</div></header><div id="app"></div></main><script>
 'use strict';const KEY='idol_life_save_v1';const R={C:{base:1,pay:1000,initial:100,mental:5},B:{base:2,pay:3000,initial:300,mental:10},A:{base:3,pay:10000,initial:600,mental:15},S:{base:5,pay:30000,initial:900,mental:25}};
 const defs=[['SHIBUYA GIRLS','C','monthly'],['愛情過剰摂取','B','half'],['きゅるりと未完成','A','year'],['乃木坂46','S','saka'],['櫻坂46','S','saka'],['日向坂46','S','saka'],['AKB48','S','forty'],['NMB48','S','forty'],['＝LOVE','S','sashi'],['≠ME','S','sashi'],['≒JOY','S','sashi'],['FRUITS ZIPPER','S','kawaii'],['CANDY TUNE','S','kawaii'],['CUTIE STREET','S','kawaii']];
 let s=null,tab='home',queue=[],notice='';const $=x=>document.getElementById(x),rand=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,clamp=(x,a=0,b=1000)=>Math.max(a,Math.min(b,x)),fmt=n=>Math.floor(n).toLocaleString('ja-JP'),age=()=>12+Math.floor(s.week/48),yr=()=>Math.floor(s.week/48),month=()=>Math.floor(s.week%48/4)+1,wim=()=>s.week%4+1,group=()=>s.groups.find(g=>g.name===s.current),isIdol=()=>!!s.current;
