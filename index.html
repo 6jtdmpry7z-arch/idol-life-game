@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>アイドル人生シミュレーション Ver.1.1</title><style>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>アイドル人生シミュレーション Ver.1.2</title><style>
 :root{--pink:#e94391;--bg:#fff5fa;--ink:#35243b;--muted:#857787}*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#ffe2f1,#f8f3ff 55%,#fff8e8);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif}main{max-width:760px;margin:auto;padding:15px 12px 90px}header{background:linear-gradient(125deg,#ff5da7,#a36bdf);color:white;padding:22px;border-radius:22px;box-shadow:0 8px 28px #a54c8b33}h1{font-size:24px;margin:0 0 6px}h2{font-size:17px;margin:0 0 12px}p{line-height:1.6}.sub{font-size:12px;opacity:.9}.panel{background:#fff;border:1px solid #f5d6e5;border-radius:18px;padding:16px;margin:13px 0;box-shadow:0 4px 15px #ba6e9520}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat{background:#fff5fa;padding:10px;border-radius:12px;font-size:12px}.stat strong{display:block;font-size:18px;margin-top:4px}.bar{height:7px;background:#f3e3ed;border-radius:8px;overflow:hidden;margin-top:6px}.bar>i{display:block;background:linear-gradient(90deg,#ff7cb8,#a77afa);height:100%}button,select,input{font:inherit}button{border:0;background:#fbe4f0;color:#8a2861;border-radius:12px;padding:12px 10px;font-weight:700;cursor:pointer;min-height:44px}button.primary{background:linear-gradient(110deg,#f64c9c,#b268dd);color:white}button:disabled{opacity:.38;cursor:not-allowed}.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.actions button{text-align:left;font-size:13px}.actions small{display:block;font-weight:400;font-size:11px;margin-top:4px}.pill{display:inline-block;background:#ffe1ee;color:#a32e6e;padding:4px 9px;border-radius:99px;font-size:12px;margin:3px}.muted{color:var(--muted);font-size:12px}.log{border-bottom:1px solid #f2e7ed;padding:8px 0;font-size:13px;line-height:1.5}.log:first-child{font-weight:700}.choices{display:grid;gap:8px}.choices button{text-align:left}.group{border-bottom:1px solid #f2e7ed;padding:10px 0;font-size:13px}.group:last-child{border:0}input{border:1px solid #ebc6d9;border-radius:12px;padding:12px;width:100%;margin:6px 0 12px}details{margin-top:12px}summary{cursor:pointer;font-weight:700}.hidden{display:none}.alert{background:#fff0e4;border:1px solid #f8d4a3;padding:12px;border-radius:12px;margin:10px 0;font-size:13px}.tabs{display:flex;gap:7px;overflow:auto;margin:12px 0}.tabs button{white-space:nowrap;font-size:12px}.tabs button.active{background:#e94391;color:white}.end{background:#fdf0ff;border-radius:14px;padding:18px;text-align:center}.wide{width:100%}
 
 /* Idol Life - Royal Kawaii Theme / presentation-only override */
@@ -84,7 +84,7 @@ summary{color:#a74780;padding:7px 0}
 .aud-notification p{font-size:13px;line-height:1.6;color:#895875;overflow-wrap:anywhere}
 .aud-count{background:#f45a9d;color:white;border-radius:30px;padding:3px 9px;font-size:11px}
 
-/* Ver.1.1 — Premium Idol Home */
+/* Ver.1.2 — Premium Idol Home */
 body{background:radial-gradient(ellipse at 10% 5%,#ffe1f0 0,transparent 36%),linear-gradient(180deg,#fff8fc 0%,#fceef7 60%,#fffafc 100%)}
 main{padding:12px 12px 105px}
 header{padding:17px 14px 15px;border-radius:21px;box-shadow:0 5px 17px #d97fa33c}
@@ -135,7 +135,11 @@ header .sub{margin-top:8px}
 .ability-name strong{font-size:17px;color:#d74c91}
 .ability-row .bar{height:9px;margin-top:9px}
 @media(max-width:390px){.dashboard-hero{min-height:300px}.dashboard-hero .idol-avatar{height:275px;width:230px}.hero-label strong{font-size:16px}.metric strong{font-size:19px}.weekly-card h2{font-size:18px}}
-</style></head><body><main><header><h1>🎀 アイドル人生</h1><div>12歳から始まる、あなただけのアイドル物語</div><div class="sub">Ver.1.1｜王道アイドルデザイン</div></header><div id="app"></div></main><script>
+.anime-idol{overflow:visible;filter:drop-shadow(0 8px 13px #aa589255)}
+.dashboard-hero .anime-idol{width:270px;height:320px;max-width:90%;transform:translateY(13px)}
+.idol-stage .anime-idol{width:235px;max-width:100%;height:auto}
+@media(max-width:390px){.dashboard-hero .anime-idol{width:245px;height:295px}}
+</style></head><body><main><header><h1>🎀 アイドル人生</h1><div>12歳から始まる、あなただけのアイドル物語</div><div class="sub">Ver.1.2｜王道アイドルデザイン</div></header><div id="app"></div></main><script>
 'use strict';const KEY='idol_life_save_v1';const R={C:{base:1,pay:1000,initial:100,mental:5},B:{base:2,pay:3000,initial:300,mental:10},A:{base:3,pay:10000,initial:600,mental:15},S:{base:5,pay:30000,initial:900,mental:25}};
 const defs=[['SHIBUYA GIRLS','C','monthly'],['愛情過剰摂取','B','half'],['きゅるりと未完成','A','year'],['乃木坂46','S','saka'],['櫻坂46','S','saka'],['日向坂46','S','saka'],['AKB48','S','forty'],['NMB48','S','forty'],['＝LOVE','S','sashi'],['≠ME','S','sashi'],['≒JOY','S','sashi'],['FRUITS ZIPPER','S','kawaii'],['CANDY TUNE','S','kawaii'],['CUTIE STREET','S','kawaii']];
 let s=null,tab='home',queue=[],notice='';const $=x=>document.getElementById(x),rand=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,clamp=(x,a=0,b=1000)=>Math.max(a,Math.min(b,x)),fmt=n=>Math.floor(n).toLocaleString('ja-JP'),age=()=>12+Math.floor(s.week/48),yr=()=>Math.floor(s.week/48),month=()=>Math.floor(s.week%48/4)+1,wim=()=>s.week%4+1,group=()=>s.groups.find(g=>g.name===s.current),isIdol=()=>!!s.current;
@@ -148,31 +152,38 @@ const RIBBON_COLORS={pink:'#f45c9f',red:'#e94f68',lavender:'#ae83df',blue:'#74ae
 function lookOf(x){return {...LOOK_DEFAULT,...(x||{})}}
 function avatar(x){
  const v=lookOf(x),hair=HAIR_COLORS[v.hair]||HAIR_COLORS.brown,eye=EYE_COLORS[v.eyes]||EYE_COLORS.brown,ribbon=RIBBON_COLORS[v.ribbon]||RIBBON_COLORS.pink;
- const side=v.style==='short'?'<path d="M56 86 Q38 111 54 137 L75 128 L79 89Z M144 86 Q162 111 146 137 L125 128 L121 89Z" fill="'+hair+'"/>':
- '<path d="M57 78 Q34 115 44 198 L66 199 Q59 150 74 117Z M143 78 Q166 115 156 198 L134 199 Q141 150 126 117Z" fill="'+hair+'"/>';
- const tails=v.style==='twintail'?'<path d="M57 85 Q12 97 30 172 Q44 181 56 161 Q40 115 73 101Z M143 85 Q188 97 170 172 Q156 181 144 161 Q160 115 127 101Z" fill="'+hair+'"/>':'';
- const bow='<g fill="'+ribbon+'" stroke="#ffffff" stroke-width="2"><path d="M145 50 Q169 28 172 51 Q176 74 147 60 Q126 83 129 57 Q131 43 145 50Z"/><circle cx="146" cy="55" r="7"/></g>';
- return `<svg class="idol-avatar" viewBox="0 0 200 235" role="img" aria-label="主人公のアイドルイラスト" xmlns="http://www.w3.org/2000/svg">
- <ellipse cx="100" cy="226" rx="61" ry="7" fill="#b873a5" opacity=".23"/>
- ${tails}${side}
- <path d="M72 158 Q46 166 40 211 L160 211 Q154 166 128 158Z" fill="#fff" stroke="#e8a5c9" stroke-width="3"/>
- <path d="M73 165 L100 193 L127 165 L137 211 L63 211Z" fill="${ribbon}" opacity=".94"/>
- <path d="M80 163 L100 182 L120 163 L108 162 L100 174 L92 162Z" fill="#fff"/>
- <path d="M88 184 L100 193 L112 184 L106 205 L94 205Z" fill="#fff" opacity=".9"/>
- <path d="M92 147 L108 147 L109 167 Q100 177 91 167Z" fill="#ffdfd0"/>
- <path d="M56 86 Q47 37 85 28 Q139 14 146 75 L142 112 L57 112Z" fill="${hair}"/>
- <ellipse cx="100" cy="102" rx="44" ry="54" fill="#ffe6d7" stroke="#efc4c0" stroke-width="1.5"/>
- <ellipse cx="57" cy="108" rx="6" ry="11" fill="#ffe6d7"/><ellipse cx="143" cy="108" rx="6" ry="11" fill="#ffe6d7"/>
- <path d="M55 89 Q48 39 83 32 Q120 18 145 58 Q146 77 143 89 Q129 81 119 64 Q104 83 56 88Z" fill="${hair}"/>
- <path d="M62 82 Q90 70 113 50 Q110 81 64 91Z" fill="${hair}"/>
- <path d="M68 106 Q77 98 88 106 M112 106 Q123 98 132 106" fill="none" stroke="#5d3d4d" stroke-width="3" stroke-linecap="round"/>
- <ellipse cx="79" cy="112" rx="7" ry="9" fill="white"/><ellipse cx="121" cy="112" rx="7" ry="9" fill="white"/>
- <ellipse cx="80" cy="113" rx="5" ry="7" fill="${eye}"/><ellipse cx="120" cy="113" rx="5" ry="7" fill="${eye}"/>
- <circle cx="82" cy="110" r="2" fill="white"/><circle cx="122" cy="110" r="2" fill="white"/>
- <ellipse cx="66" cy="126" rx="10" ry="5" fill="#ff9fb1" opacity=".38"/><ellipse cx="134" cy="126" rx="10" ry="5" fill="#ff9fb1" opacity=".38"/>
- <path d="M94 138 Q100 144 106 138" fill="none" stroke="#c76b83" stroke-width="2.5" stroke-linecap="round"/>
- ${bow}
- <circle cx="100" cy="205" r="4" fill="#ffdfe9"/>
+ const id='idol'+Math.random().toString(36).slice(2,10);
+ const longHair=v.style==='long',shortHair=v.style==='short',twin=v.style==='twintail';
+ const backHair=shortHair?`<path d="M62 68 Q38 95 48 137 Q61 150 79 136 L122 136 Q144 149 153 131 Q160 90 137 64Z" fill="${hair}" stroke="#513747" stroke-width="1.5"/>`:`<path d="M63 58 Q37 69 38 139 Q34 193 51 225 Q67 235 77 213 L122 213 Q142 236 153 220 Q169 180 160 126 Q160 62 135 54Z" fill="${hair}" stroke="#513747" stroke-width="1.5"/><path d="M53 97 Q45 164 54 210 M147 97 Q156 170 147 210" stroke="#fff" stroke-opacity=".22" stroke-width="4" fill="none"/>`;
+ const twinHair=twin?`<g stroke="#513747" stroke-width="1.5"><path d="M59 77 Q19 65 23 133 Q17 180 30 207 Q57 205 60 179 Q44 119 71 92Z" fill="${hair}"/><path d="M140 77 Q181 65 177 133 Q183 180 170 207 Q143 205 140 179 Q156 119 129 92Z" fill="${hair}"/></g><path d="M39 113 Q29 150 38 181 M161 113 Q171 150 162 181" stroke="#fff" stroke-opacity=".3" stroke-width="5" fill="none"/>`:'';
+ const bows=twin?`<g fill="${ribbon}" stroke="#fff" stroke-width="1.4"><path d="M60 82 Q39 60 36 82 Q35 100 61 90 Q82 106 82 83 Q80 73 60 82Z"/><circle cx="60" cy="86" r="5"/><path d="M140 82 Q161 60 164 82 Q165 100 139 90 Q118 106 118 83 Q120 73 140 82Z"/><circle cx="140" cy="86" r="5"/></g>`:`<g fill="${ribbon}" stroke="#fff" stroke-width="1.5"><path d="M140 54 Q165 28 171 50 Q175 73 144 63 Q126 83 125 57 Q126 43 140 54Z"/><circle cx="144" cy="57" r="7"/></g>`;
+ return `<svg class="idol-avatar anime-idol" viewBox="0 0 200 270" role="img" aria-label="アニメ調の主人公。髪型・髪色・瞳・リボンを反映" xmlns="http://www.w3.org/2000/svg">
+ <defs><linearGradient id="skin-${id}" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff3e8"/><stop offset=".6" stop-color="#ffe1d3"/><stop offset="1" stop-color="#f8c9bd"/></linearGradient><linearGradient id="dress-${id}" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f7d3ea"/></linearGradient><linearGradient id="iris-${id}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#32233b"/><stop offset=".32" stop-color="${eye}"/><stop offset="1" stop-color="#e1b2da"/></linearGradient></defs>
+ <ellipse cx="100" cy="258" rx="68" ry="7" fill="#a66b9a" opacity=".16"/>
+ ${backHair}${twinHair}
+ <path d="M70 177 Q45 182 35 224 L23 260 L177 260 L165 224 Q155 182 130 177Z" fill="url(#dress-${id})" stroke="#b96a9e" stroke-width="2"/>
+ <path d="M58 194 Q37 209 28 250 L48 252 Q57 219 72 204 M142 194 Q163 209 172 250 L152 252 Q143 219 128 204" fill="#fce5f1" stroke="#d6a3c2" stroke-width="1.3"/>
+ <path d="M69 190 L100 223 L131 190 L143 260 L57 260Z" fill="${ribbon}" opacity=".93"/>
+ <path d="M72 189 L100 213 L128 189 L119 182 L100 199 L81 182Z" fill="#fff" stroke="#e8bbd4" stroke-width="1.3"/>
+ <path d="M57 239 Q76 246 100 240 Q124 246 143 239 M56 251 Q80 259 100 252 Q120 259 144 251" stroke="#fff" stroke-width="5" fill="none" opacity=".95"/>
+ <path d="M89 165 L111 165 L112 185 Q100 197 88 185Z" fill="url(#skin-${id})" stroke="#e5b6af" stroke-width="1"/>
+ <path d="M54 87 Q46 39 80 27 Q121 11 145 46 Q160 67 149 105 L52 105Z" fill="${hair}" stroke="#513747" stroke-width="1.6"/>
+ <path d="M61 108 Q48 106 51 123 Q53 137 65 134 M139 108 Q152 106 149 123 Q147 137 135 134" fill="url(#skin-${id})" stroke="#e5b6af" stroke-width="1.4"/>
+ <path d="M100 51 C63 51 58 77 59 117 Q60 156 85 170 Q100 178 115 170 Q140 156 141 117 Q142 77 100 51Z" fill="url(#skin-${id})" stroke="#e4adae" stroke-width="1.4"/>
+ <path d="M55 97 Q48 44 78 35 Q118 15 146 53 Q152 74 143 101 Q133 93 125 72 Q105 91 78 92 Q67 98 55 97Z" fill="${hair}" stroke="#513747" stroke-width="1.4"/>
+ <path d="M60 91 Q84 75 110 47 Q104 82 70 103 Q63 104 60 91Z" fill="${hair}"/><path d="M114 44 Q121 69 142 87" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="5" stroke-linecap="round"/>
+ <path d="M64 105 Q78 97 92 105 M108 105 Q122 97 136 105" stroke="#5a3b4e" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+ <path d="M65 119 Q76 107 92 118 Q91 137 79 138 Q68 138 65 119Z M108 118 Q124 107 135 119 Q132 138 121 138 Q109 137 108 118Z" fill="#fff" stroke="#63435c" stroke-width="2"/>
+ <ellipse cx="79" cy="124" rx="9" ry="13" fill="url(#iris-${id})"/><ellipse cx="121" cy="124" rx="9" ry="13" fill="url(#iris-${id})"/>
+ <ellipse cx="79" cy="122" rx="4.4" ry="8" fill="#302238"/><ellipse cx="121" cy="122" rx="4.4" ry="8" fill="#302238"/>
+ <ellipse cx="75" cy="118" rx="4" ry="5" fill="#fff"/><ellipse cx="117" cy="118" rx="4" ry="5" fill="#fff"/><circle cx="83" cy="131" r="2.5" fill="#fff"/><circle cx="125" cy="131" r="2.5" fill="#fff"/>
+ <path d="M64 117 L60 113 M136 117 L140 113" stroke="#513747" stroke-width="2" stroke-linecap="round"/>
+ <ellipse cx="67" cy="144" rx="13" ry="6" fill="#ff8eaa" opacity=".35"/><ellipse cx="133" cy="144" rx="13" ry="6" fill="#ff8eaa" opacity=".35"/>
+ <path d="M98 140 Q100 143 102 140" stroke="#d78e94" stroke-width="1.5" fill="none"/>
+ <path d="M92 151 Q100 158 108 151 Q100 161 92 151Z" fill="#ca6b86"/><path d="M96 153 Q100 155 104 153" stroke="#fff" stroke-width="1.5"/>
+ ${bows}
+ <path d="M88 215 Q100 225 112 215 L108 235 L92 235Z" fill="#fff"/><path d="M91 218 Q78 204 79 222 Q81 230 98 224 Q118 235 121 219 Q122 207 103 219Z" fill="${ribbon}" stroke="#fff" stroke-width="1.2"/><circle cx="100" cy="222" r="5" fill="#fff"/><circle cx="100" cy="243" r="3.2" fill="#fff"/>
+ <g fill="#fff" opacity=".9"><path d="M42 38 L45 46 L53 49 L45 52 L42 60 L39 52 L31 49 L39 46Z"/><circle cx="159" cy="144" r="2.5"/><circle cx="34" cy="165" r="2"/></g>
  </svg>`;
 }
 function lookControls(v,prefix){
