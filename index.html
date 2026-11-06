@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>アイドル人生シミュレーション Ver.1.0</title><style>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>アイドル人生シミュレーション Ver.1.1</title><style>
 :root{--pink:#e94391;--bg:#fff5fa;--ink:#35243b;--muted:#857787}*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#ffe2f1,#f8f3ff 55%,#fff8e8);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif}main{max-width:760px;margin:auto;padding:15px 12px 90px}header{background:linear-gradient(125deg,#ff5da7,#a36bdf);color:white;padding:22px;border-radius:22px;box-shadow:0 8px 28px #a54c8b33}h1{font-size:24px;margin:0 0 6px}h2{font-size:17px;margin:0 0 12px}p{line-height:1.6}.sub{font-size:12px;opacity:.9}.panel{background:#fff;border:1px solid #f5d6e5;border-radius:18px;padding:16px;margin:13px 0;box-shadow:0 4px 15px #ba6e9520}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat{background:#fff5fa;padding:10px;border-radius:12px;font-size:12px}.stat strong{display:block;font-size:18px;margin-top:4px}.bar{height:7px;background:#f3e3ed;border-radius:8px;overflow:hidden;margin-top:6px}.bar>i{display:block;background:linear-gradient(90deg,#ff7cb8,#a77afa);height:100%}button,select,input{font:inherit}button{border:0;background:#fbe4f0;color:#8a2861;border-radius:12px;padding:12px 10px;font-weight:700;cursor:pointer;min-height:44px}button.primary{background:linear-gradient(110deg,#f64c9c,#b268dd);color:white}button:disabled{opacity:.38;cursor:not-allowed}.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.actions button{text-align:left;font-size:13px}.actions small{display:block;font-weight:400;font-size:11px;margin-top:4px}.pill{display:inline-block;background:#ffe1ee;color:#a32e6e;padding:4px 9px;border-radius:99px;font-size:12px;margin:3px}.muted{color:var(--muted);font-size:12px}.log{border-bottom:1px solid #f2e7ed;padding:8px 0;font-size:13px;line-height:1.5}.log:first-child{font-weight:700}.choices{display:grid;gap:8px}.choices button{text-align:left}.group{border-bottom:1px solid #f2e7ed;padding:10px 0;font-size:13px}.group:last-child{border:0}input{border:1px solid #ebc6d9;border-radius:12px;padding:12px;width:100%;margin:6px 0 12px}details{margin-top:12px}summary{cursor:pointer;font-weight:700}.hidden{display:none}.alert{background:#fff0e4;border:1px solid #f8d4a3;padding:12px;border-radius:12px;margin:10px 0;font-size:13px}.tabs{display:flex;gap:7px;overflow:auto;margin:12px 0}.tabs button{white-space:nowrap;font-size:12px}.tabs button.active{background:#e94391;color:white}.end{background:#fdf0ff;border-radius:14px;padding:18px;text-align:center}.wide{width:100%}
 
 /* Idol Life - Royal Kawaii Theme / presentation-only override */
@@ -83,7 +83,59 @@ summary{color:#a74780;padding:7px 0}
 .aud-notification-title{font-weight:900;color:#c63e84;font-size:17px}
 .aud-notification p{font-size:13px;line-height:1.6;color:#895875;overflow-wrap:anywhere}
 .aud-count{background:#f45a9d;color:white;border-radius:30px;padding:3px 9px;font-size:11px}
-</style></head><body><main><header><h1>🎀 アイドル人生</h1><div>12歳から始まる、あなただけのアイドル物語</div><div class="sub">Ver.1.0｜王道アイドルデザイン</div></header><div id="app"></div></main><script>
+
+/* Ver.1.1 — Premium Idol Home */
+body{background:radial-gradient(ellipse at 10% 5%,#ffe1f0 0,transparent 36%),linear-gradient(180deg,#fff8fc 0%,#fceef7 60%,#fffafc 100%)}
+main{padding:12px 12px 105px}
+header{padding:17px 14px 15px;border-radius:21px;box-shadow:0 5px 17px #d97fa33c}
+header h1{font-size:clamp(23px,5vw,29px);margin-bottom:3px}
+header .sub{margin-top:8px}
+.idol-dashboard{border-radius:25px;background:linear-gradient(145deg,#fff8fd,#fff1f8);border:2px solid #fff;box-shadow:0 9px 27px #d881a444;margin:15px 0;overflow:hidden}
+.dashboard-top{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:12px 14px;background:#fffafd;color:#aa4b83;font-size:10px;font-weight:900;letter-spacing:.07em}
+.dashboard-date{color:#93647e;letter-spacing:0}
+.dashboard-hero{position:relative;min-height:330px;display:flex;justify-content:center;align-items:flex-end;overflow:hidden;background:radial-gradient(circle at 50% 40%,#fff7fb 0,#ffd5e9 42%,#eeacd8 75%,#d58bcb 100%)}
+.dashboard-hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(118deg,transparent 0 48px,#fff5 49px 51px,transparent 52px 97px);opacity:.42}
+.dashboard-hero:after{content:"";position:absolute;bottom:-80px;width:90%;height:135px;background:#fff7fca6;border-radius:50%;filter:blur(13px)}
+.dashboard-hero .idol-avatar{width:255px;height:300px;max-width:85%;position:relative;z-index:2;transform:translateY(10px);filter:drop-shadow(0 10px 14px #ac5a9066)}
+.hero-sparkles{position:absolute;top:25px;left:8%;font-size:30px;color:#fff;text-shadow:0 3px 12px #d15da3;letter-spacing:20px;z-index:1}
+.hero-label{position:absolute;left:12px;bottom:13px;z-index:3;display:flex;flex-direction:column;gap:3px;max-width:70%;background:#ffffffde;border:1px solid #fff;border-radius:15px;padding:10px 12px;box-shadow:0 3px 12px #a74c8422}
+.hero-kicker{font-size:9px;color:#e15599;letter-spacing:.14em;font-weight:900}
+.hero-label strong{font-size:18px;color:#7b3466;overflow-wrap:anywhere}
+.hero-label>span:last-child{font-size:11px;color:#97617e;overflow-wrap:anywhere}
+.hero-rank{position:absolute;right:12px;top:14px;z-index:3;border-radius:25px;padding:7px 11px;color:white;background:linear-gradient(135deg,#f7ad57,#e885ad);border:1px solid #fff9;box-shadow:0 3px 8px #c46a9c55;font-size:10px;font-weight:900;letter-spacing:.07em}
+.dashboard-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:13px}
+.metric{background:#fff;border:1px solid #f8d6e5;border-radius:16px;padding:12px 11px;min-width:0;box-shadow:0 3px 0 #f7e1eb}
+.metric>span{display:block;font-size:11px;color:#aa6b92;font-weight:750}
+.metric strong{display:block;color:#793b69;font-size:21px;font-weight:900;margin:4px 0;overflow-wrap:anywhere}
+.metric small{font-size:10px;font-weight:700;color:#b58aa1}
+.metric .bar{height:7px;margin-top:8px}
+.dashboard-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:0 15px 14px;color:#a96e90;font-size:10px;font-weight:800}
+.idol-dashboard>.alert,.idol-dashboard>.muted{margin:0 13px 13px}
+.weekly-card{margin:16px 0;border:2px solid #fff;border-radius:23px;background:linear-gradient(125deg,#f8a7cb 0%,#f476ae 53%,#e46ba8 100%);padding:19px 17px 20px;color:white;box-shadow:0 7px 0 #f4d3e3,0 12px 24px #d58bb33d;position:relative;overflow:hidden}
+.weekly-card:after{content:"✧";position:absolute;right:-4px;top:-24px;color:#ffffff3a;font-size:145px;pointer-events:none}
+.weekly-label{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.12em;font-weight:900;position:relative;z-index:1}
+.weekly-label span{border:1px solid #fff9;padding:3px 7px;border-radius:20px}
+.weekly-card h2{color:#fff;font-size:20px;line-height:1.4;margin:12px 0 6px;position:relative;z-index:1}
+.weekly-card p{font-size:12px;color:#fffefc;margin:0 0 17px;position:relative;z-index:1}
+.weekly-card .next-week{position:relative;z-index:1;background:linear-gradient(180deg,#fff,#fff0f8);color:#c23e84;border:1px solid white;box-shadow:0 4px 0 #c55c92;font-size:16px;min-height:58px}
+.weekly-extra{margin-top:14px;position:relative;z-index:1}
+.section-heading{display:flex;gap:11px;align-items:center;margin-bottom:12px}
+.section-heading>span{display:grid;place-items:center;width:43px;height:43px;flex:none;border-radius:15px;background:linear-gradient(140deg,#ffe5f2,#f7c5e2);font-size:22px}
+.section-heading small{display:block;color:#c17da1;font-size:9px;letter-spacing:.14em;font-weight:900}
+.section-heading h2{margin:2px 0 0}
+.section-heading h2:before{content:none}
+.action-panel .actions{gap:10px}
+.action-panel .actions button{display:flex;flex-direction:column;gap:5px;min-height:112px;background:linear-gradient(155deg,#fffefd,#fff1f8);padding:13px 11px}
+.action-emoji{font-size:25px;line-height:1.2}
+.action-title{font-size:13px;color:#a63f7c}
+.action-panel .actions small{margin-top:auto}
+.ability-list{display:grid;gap:13px}
+.ability-row{background:#fff8fc;border:1px solid #f8dfea;border-radius:15px;padding:11px 12px}
+.ability-name{font-size:13px;font-weight:800;color:#8e4c78;display:flex;justify-content:space-between;align-items:center}
+.ability-name strong{font-size:17px;color:#d74c91}
+.ability-row .bar{height:9px;margin-top:9px}
+@media(max-width:390px){.dashboard-hero{min-height:300px}.dashboard-hero .idol-avatar{height:275px;width:230px}.hero-label strong{font-size:16px}.metric strong{font-size:19px}.weekly-card h2{font-size:18px}}
+</style></head><body><main><header><h1>🎀 アイドル人生</h1><div>12歳から始まる、あなただけのアイドル物語</div><div class="sub">Ver.1.1｜王道アイドルデザイン</div></header><div id="app"></div></main><script>
 'use strict';const KEY='idol_life_save_v1';const R={C:{base:1,pay:1000,initial:100,mental:5},B:{base:2,pay:3000,initial:300,mental:10},A:{base:3,pay:10000,initial:600,mental:15},S:{base:5,pay:30000,initial:900,mental:25}};
 const defs=[['SHIBUYA GIRLS','C','monthly'],['愛情過剰摂取','B','half'],['きゅるりと未完成','A','year'],['乃木坂46','S','saka'],['櫻坂46','S','saka'],['日向坂46','S','saka'],['AKB48','S','forty'],['NMB48','S','forty'],['＝LOVE','S','sashi'],['≠ME','S','sashi'],['≒JOY','S','sashi'],['FRUITS ZIPPER','S','kawaii'],['CANDY TUNE','S','kawaii'],['CUTIE STREET','S','kawaii']];
 let s=null,tab='home',queue=[],notice='';const $=x=>document.getElementById(x),rand=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,clamp=(x,a=0,b=1000)=>Math.max(a,Math.min(b,x)),fmt=n=>Math.floor(n).toLocaleString('ja-JP'),age=()=>12+Math.floor(s.week/48),yr=()=>Math.floor(s.week/48),month=()=>Math.floor(s.week%48/4)+1,wim=()=>s.week%4+1,group=()=>s.groups.find(g=>g.name===s.current),isIdol=()=>!!s.current;
@@ -227,8 +279,41 @@ if(!s.done){
 save();render()}
 function dismiss(i){let e=queue.shift();if(e&&e.options[i])e.options[i][1]();save();render()}
 function btn(text,fn,cls=''){return `<button class="${esc(cls)}" onclick="${esc(fn)}">${text}</button>`}function bar(v,max=1000){return `<div class="bar"><i style="width:${Math.min(100,Math.max(0,v/max*100))}%"></i></div>`}
-function headerStats(){return `<div class="idol-stage">${avatar(s.look)}<span class="idol-tag">IDOL LIFE</span><span class="idol-caption">${esc(s.name)} · ${isIdol()?esc(s.current):"アイドル候補生"}</span></div><div class="panel"><h2>🌸 ${esc(s.name)} <span class="pill">${age()}歳 ${month()}月 第${wim()}週</span></h2><div class="grid"><div class="stat">所属<strong>${esc(s.current||'一般人')}</strong></div><div class="stat">個人人気<strong>${fmt(s.pop)} / 1000</strong>${bar(s.pop)}</div><div class="stat">メンタル<strong>${fmt(s.mental)} / 100</strong>${bar(s.mental,100)}</div><div class="stat">所持金<strong>¥${fmt(s.money)}</strong></div><div class="stat">スキャンダル<strong>${fmt(s.scandal)} / 100</strong>${bar(s.scandal,100)}</div><div class="stat">現在のグループ人気<strong>${group()?fmt(group().pop)+' / 1000':'―'}</strong>${group()?bar(group().pop):''}</div></div>${s.ban?`<p class="alert">🚫 移籍・再デビュー禁止：残り${s.ban}週間</p>`:''}${s.pending.length?`<p class="muted">保留中の合格資格：${s.pending.map(esc).join('、')}</p>`:''}</div>`}
-function home(){return auditionBanner()+`<div class="panel"><h2>✨ 今週の自由行動</h2><p class="muted">${s.actionUsed?'今週の自由行動は終了しました。':'1週間に1つ選べます。'}</p><div class="actions">${[['dance','💃 ダンスレッスン','ダンス＋5'],['sing','🎤 ボーカルレッスン','歌唱力＋5'],['charm','😊 笑顔の練習','愛嬌＋5'],['humor','📺 バラエティ研究','ユーモア＋5'],['town','🛍️ 街へ出かける','費用1,000〜5,000円／顔面＋1／スカウト'],...(age()<=18?[['help','🏠 親のお手伝い','＋1,000円']]:[]),...(age()>=16?[['job','💼 アルバイト','＋5,000〜10,000円']]:[]),['surgery','💎 美容整形','30万円／顔面＋100（4回目以降リスク）']].map(([id,label,desc])=>`<button ${s.actionUsed?'disabled':''} onclick="doAction('${id}')">${label}<small>${desc}</small></button>`).join('')}</div></div><div class="panel"><h2>📊 能力値</h2>${Object.entries({face:'顔面偏差値',charm:'愛嬌',dance:'ダンス',sing:'歌唱力',humor:'ユーモア'}).map(([k,v])=>`<div class="group">${v} <strong style="float:right">${fmt(s.stats[k])}</strong>${bar(s.stats[k])}</div>`).join('')}</div><div class="panel"><h2>📅 週を進める</h2><p class="muted">週を進めるとアイドル活動、収入、人気成長、イベントが自動処理されます。</p>${btn('次の週へ進む →','advance()','primary wide')}${isIdol()&&s.week%4===3?`<p>${btn('🎓 今月末で卒業する','graduate()')}</p>`:''}${s.partner?`<p>💌 交際中：${esc(s.partner.name)}（交際${s.datingWeeks}週間） ${btn('別れる','breakup();render()')}</p>`:''}</div>`}
+function headerStats(){
+ const active=isIdol(),g=group(),rank=g?g.rank:'TRAINEE';
+ return `<section class="idol-dashboard" aria-label="アイドルプロフィール">
+ <div class="dashboard-top"><span class="dashboard-mark">✦ IDOL LIFE ✦</span><span class="dashboard-date">📅 ${age()}歳 · ${month()}月 第${wim()}週</span></div>
+ <div class="dashboard-hero">
+ <div class="hero-sparkles" aria-hidden="true">✧ ♡ ✦</div>
+ ${avatar(s.look)}
+ <div class="hero-label"><span class="hero-kicker">${active?'NOW ON STAGE':'FUTURE IDOL'}</span><strong>${esc(s.name)}</strong><span>${esc(s.current||'アイドル候補生')}</span></div>
+ <span class="hero-rank">${esc(rank)} ${active?'RANK':'START'}</span>
+ </div>
+ <div class="dashboard-metrics">
+ <div class="metric"><span>💖 個人人気</span><strong>${fmt(s.pop)}<small> / 1000</small></strong>${bar(s.pop)}</div>
+ <div class="metric"><span>🌷 メンタル</span><strong>${fmt(s.mental)}<small> / 100</small></strong>${bar(s.mental,100)}</div>
+ <div class="metric"><span>💰 所持金</span><strong>¥${fmt(s.money)}</strong></div>
+ <div class="metric"><span>✨ グループ人気</span><strong>${g?fmt(g.pop):'―'}<small>${g?' / 1000':''}</small></strong>${g?bar(g.pop):''}</div>
+ </div>
+ <div class="dashboard-bottom"><span>🛡️ スキャンダル ${fmt(s.scandal)} / 100</span><span>${active?'🎤 アイドル活動中':'🌟 デビューを目指そう'}</span></div>
+ ${s.ban?`<div class="alert">🚫 移籍・再デビュー禁止：残り${s.ban}週間</div>`:''}
+ ${s.pending.length?`<p class="muted">保留中の合格資格：${s.pending.map(esc).join('、')}</p>`:''}
+ </section>`;
+}
+function home(){
+ const acts=[['dance','💃','ダンスレッスン','ダンス＋5'],['sing','🎤','ボーカルレッスン','歌唱力＋5'],['charm','😊','笑顔の練習','愛嬌＋5'],['humor','📺','バラエティ研究','ユーモア＋5'],['town','🛍️','街へ出かける','費用1,000〜5,000円／顔面＋1／スカウト'],...(age()<=18?[['help','🏠','親のお手伝い','＋1,000円']]:[]),...(age()>=16?[['job','💼','アルバイト','＋5,000〜10,000円']]:[]),['surgery','💎','美容整形','30万円／顔面＋100（4回目以降リスク）']];
+ return `<section class="weekly-card">
+ <div class="weekly-label">THIS WEEK'S STORY <span>WEEK ${s.week+1}</span></div>
+ <h2>今週はどんなアイドル人生にする？</h2>
+ <p>${s.actionUsed?'今週の自由行動は終了！次の週へ進もう。':'レッスンやお出かけで、自分だけの物語を進めよう♡'}</p>
+ ${btn('📅 次の週へ進む ✦','advance()','primary wide next-week')}
+ ${isIdol()&&s.week%4===3?`<div class="weekly-extra">${btn('🎓 今月末で卒業する','graduate()')}</div>`:''}
+ </section>
+ ${auditionBanner()}
+ <section class="panel action-panel"><div class="section-heading"><span>🎀</span><div><small>MY SCHEDULE</small><h2>今週の自由行動</h2></div></div><p class="muted">${s.actionUsed?'今週の自由行動は使用済みです。':'1週間に1つ選べます。'}</p><div class="actions">${acts.map(([id,emoji,label,desc])=>`<button ${s.actionUsed?'disabled':''} onclick="doAction('${id}')"><span class="action-emoji">${emoji}</span><span class="action-title">${label}</span><small>${desc}</small></button>`).join('')}</div></section>
+ <section class="panel ability-panel"><div class="section-heading"><span>🌟</span><div><small>MY POTENTIAL</small><h2>アイドル能力</h2></div></div><div class="ability-list">${Object.entries({face:['顔面偏差値','💗'],charm:['愛嬌','🌸'],dance:['ダンス','💃'],sing:['歌唱力','🎵'],humor:['ユーモア','✨']}).map(([k,[name,emoji]])=>`<div class="ability-row"><div class="ability-name">${emoji} ${name}<strong>${fmt(s.stats[k])}</strong></div>${bar(s.stats[k])}</div>`).join('')}</div></section>
+ ${s.partner?`<div class="panel"><h2>💌 交際中：${esc(s.partner.name)}</h2><p class="muted">交際${s.datingWeeks}週間</p>${btn('別れる','breakup();render()')}</div>`:''}`;
+}
 function auditionPanel(){
  const open=AUD_TYPES.filter(type=>availableForType(type).length);
  return `<div class="panel"><h2>🎟️ オーディション</h2><p class="muted">能力値に関係なく受験できます。合格基準と配属先は審査結果が出るまで非公開です。開催週のみ応募可能。ローカル・地下は自由行動を消費せず、その他は消費します。</p>${open.map(type=>`<div class="group"><strong>${esc(type.title)}</strong> <span class="pill">${type.rank}ランク</span>${availableForType(type).some(g=>g.specialWeek===s.week)?'<span class="pill">特別開催</span>':''}<p class="muted">${esc(type.desc)}</p><div style="margin-top:8px"><button type="button" class="primary" data-aud-type="${esc(type.id)}">🎤 受験する</button></div></div>`).join('')||'<p>今週受験できるオーディションはありません。</p>'}<details><summary>オーディション開催周期</summary>${AUD_TYPES.map(type=>`<div class="group">${esc(type.title)} <span class="muted">${{local:'4週ごと',underground:'24週ごと（重複回避）',newgroup:'48週ごと（重複回避）',saka:'12・16・20歳のランダム週',forty:'12〜19歳のランダム週',sashi:'13・15・17・19歳のランダム週',kawaii:'14・18歳のランダム週'}[type.id]}</span></div>`).join('')}</details></div>${s.pending.length?`<div class="panel"><h2>📩 保留中の合格資格</h2>${s.pending.map(n=>`<div class="group">${esc(n)} ${btn('辞退する',`decline(${JSON.stringify(n)})`)}</div>`).join('')}</div>`:''}`
