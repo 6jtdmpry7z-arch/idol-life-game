@@ -308,7 +308,27 @@ body.compact-home #app>.panel:not(.action-panel):not(.ability-panel){display:non
 body.compact-home .idol-reaction{top:22%}
 @media(max-height:730px){body.compact-home .ability-panel{bottom:calc(max(3px,env(safe-area-inset-bottom)) + 208px)}body.compact-home .action-panel{bottom:calc(max(3px,env(safe-area-inset-bottom)) + 92px)}body.compact-home .actions button{min-height:41px}body.compact-home .ability-name strong{font-size:11px}}
 @media(max-height:590px){body.compact-home .dashboard-metrics{grid-template-columns:repeat(4,minmax(0,1fr))}body.compact-home .hero-label{display:none}body.compact-home .ability-panel{bottom:calc(max(3px,env(safe-area-inset-bottom)) + 190px)}body.compact-home .action-panel{bottom:calc(max(3px,env(safe-area-inset-bottom)) + 86px)}body.compact-home .actions button{min-height:35px}body.compact-home .weekly-card{bottom:calc(max(3px,env(safe-area-inset-bottom)) + 43px)}body.compact-home .tabs button{min-height:33px}}
-</style></head><body><main><header><h1>🎀 アイドル人生</h1><div>12歳から始まる、あなただけのアイドル物語</div><div class="sub">Ver.1.13｜フルスクリーンホーム</div></header><div id="app"></div></main><script>
+
+/* v1.14 iPhone Safari: reset inherited sticky top on the bottom navigation.
+   Without top:auto, absolute .tabs has both top:0 and bottom:0 and fills viewport. */
+body.compact-home #app>.tabs{
+  position:absolute;
+  top:auto!important;
+  bottom:max(5px,env(safe-area-inset-bottom));
+  height:auto!important;
+  min-height:0;
+  max-height:64px;
+  align-items:center;
+  align-content:center;
+  grid-auto-rows:minmax(0,auto);
+}
+body.compact-home #app>.tabs button{
+  height:auto;
+  min-height:40px;
+  max-height:56px;
+  align-self:center;
+}
+</style></head><body><main><header><h1>🎀 アイドル人生</h1><div>12歳から始まる、あなただけのアイドル物語</div><div class="sub">Ver.1.14｜メニュー表示修正版</div></header><div id="app"></div></main><script>
 'use strict';const KEY='idol_life_save_v1';const R={C:{base:1,pay:1000,initial:100,mental:5},B:{base:2,pay:3000,initial:300,mental:10},A:{base:3,pay:10000,initial:600,mental:15},S:{base:5,pay:30000,initial:900,mental:25}};
 const defs=[['SHIBUYA GIRLS','C','monthly'],['愛情過剰摂取','B','half'],['きゅるりと未完成','A','year'],['乃木坂46','S','saka'],['櫻坂46','S','saka'],['日向坂46','S','saka'],['AKB48','S','forty'],['NMB48','S','forty'],['＝LOVE','S','sashi'],['≠ME','S','sashi'],['≒JOY','S','sashi'],['FRUITS ZIPPER','S','kawaii'],['CANDY TUNE','S','kawaii'],['CUTIE STREET','S','kawaii']];
 let s=null,tab='home',queue=[],notice='';const $=x=>document.getElementById(x),rand=(a,b)=>Math.floor(Math.random()*(b-a+1))+a,clamp=(x,a=0,b=1000)=>Math.max(a,Math.min(b,x)),fmt=n=>Math.floor(n).toLocaleString('ja-JP'),age=()=>12+Math.floor(s.week/48),yr=()=>Math.floor(s.week/48),month=()=>Math.floor(s.week%48/4)+1,wim=()=>s.week%4+1,group=()=>s.groups.find(g=>g.name===s.current),isIdol=()=>!!s.current;
